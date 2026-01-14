@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Xml Projekt 12988</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h3>Lista Restauracji</h3>
+
+    <div>
+        <input type="text" id="szukaj" placeholder="Tu wpisz nazwę restauracji...">
+        <button onclick="filtruj()">Szukaj</button>
+        <button onclick="resetuj()">Pokaż całą tabelę</button>
+    </div>
+    <br>
+
+    <div id="tabela">Ładowanie...</div>
+
+    <script>
+        let xmlDoc = null;
+
+        window.onload = function() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "restauracje.xml", true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    xmlDoc = xhr.responseXML;
+                    Tabelka(""); 
+                }
+            };
+            xhr.send();
+        };
+
+        function filtruj() {
+            let fraza = document.getElementById("szukaj").value;
+            Tabelka(fraza);
+        }
+
+        function resetuj() {
+            document.getElementById("szukaj").value = "";
+            Tabelka("");
+        }
+
+        function Tabelka(tekst) {
+            if (!xmlDoc) return;
+
+            let sciezka = "/restaurants/restaurant";
+            if (tekst !== "") {
+                sciezka = "/restaurants/restaurant[contains(name, '" + tekst + "')]";
+            }
+
+            let wezly = xmlDoc.evaluate(sciezka, xmlDoc, null, XPathResult.ANY_TYPE, null);
+            let wezel = wezly.iterateNext();
+            
+            let html = "<table><tr><th>Nazwa</th><th>Adres</th><th>Właściciel</th><th>Menu</th></tr>";
+            let znaleziono = false;
+
+            while (wezel) {
+                znaleziono = true;
+                
+                let nazwa = wezel.getElementsByTagName("name")[0].textContent;
+                let wlasciciel = wezel.getElementsByTagName("owner")[0].textContent;
+                
+                let adr = wezel.getElementsByTagName("address")[0];
+                let adresCalosc = adr.getElementsByTagName("street")[0].textContent + ", " +
+                                  adr.getElementsByTagName("city")[0].textContent + " " +
+                                  adr.getElementsByTagName("postal-code")[0].textContent;
+
+                let menuHtml = "<ul>";
+                let dania = wezel.getElementsByTagName("item");
+                for (let i = 0; i < dania.length; i++) {
+                    menuHtml += "<li>" + dania[i].getElementsByTagName("name")[0].textContent + 
+                                " (" + dania[i].getElementsByTagName("price")[0].textContent + " zł)</li>";
+                }
+                menuHtml += "</ul>";
+
+                html += "<tr><td>" + nazwa + "</td><td>" + adresCalosc + "</td><td>" + wlasciciel + "</td><td>" + menuHtml + "</td></tr>";
+                wezel = wezly.iterateNext();
+            }
+
+            html += "</table>";
+
+            if (!znaleziono) html = "Brak wyników.";
+            document.getElementById("tabela").innerHTML = html;
+        }
+    </script>
+</body>
+</html>
