@@ -1,62 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <restaurants>
     <restaurant>
-        <name>Pizzeria Napoli</name>
+        <name>Pizzeria Włoska</name>
         <address>
-            <street>Ul. Prosta 10</street>
-            <city>Warszawa</city>
-            <postal-code>00-100</postal-code>
+            <street>Ul. Długa 8</street>
+            <city>Włocławek</city>
+            <postal-code>87-800</postal-code>
             <country>Polska</country>
         </address>
-        <owner>Jan Kowalski</owner>
+        <owner>Grzegorz Jankowski</owner>
         <menu>
+            <item>
+                <name>Pizza Neapoli</name>
+                <price>32.00</price>
+            </item>
             <item>
                 <name>Pizza Margherita</name>
                 <price>25.00</price>
             </item>
             <item>
                 <name>Pizza Pepperoni</name>
+                <price>29.00</price>
+            </item>
+        </menu>
+    </restaurant>
+    <restaurant>
+        <name>Pizzeria Fryderyka Fazbeara</name>
+        <address>
+            <street>Ul. Pośredniczka 17</street>
+            <city>Włocławek</city>
+            <postal-code>87-800</postal-code>
+            <country>Polska</country>
+        </address>
+        <owner>Fryderyk Fazbear</owner>
+        <menu>
+            <item>
+                <name>Pizza Pepperoni</name>
+                <price>35.00</price>
+            </item>
+            <item>
+                <name>Pizza 4 sery</name>
+                <price>38.00</price>
+            </item>
+            <item>
+                <name>Pizza mega ostra</name>
+                <price>40.00</price>
+            </item>
+            <item>
+                <name>Pizza Hawajska</name>
                 <price>32.00</price>
             </item>
         </menu>
     </restaurant>
     <restaurant>
-        <name>Burger King Kong</name>
+        <name>Burger King</name>
         <address>
-            <street>Rynek Glowny 5</street>
-            <city>Krakow</city>
-            <postal-code>30-001</postal-code>
+            <street>Ul. Toruńska 67</street>
+            <city>Włocławek</city>
+            <postal-code>87-800</postal-code>
             <country>Polska</country>
         </address>
-        <owner>Anna Nowak</owner>
+        <owner>Jan Kowalski</owner>
         <menu>
             <item>
-                <name>Cheeseburger</name>
-                <price>15.50</price>
+                <name>Burger</name>
+                <price>15.00</price>
+            </item>
+            <item>
+                <name>Burger Max</name>
+                <price>24.00</price>
+            </item>
+            <item>
+                <name>Burger Mini</name>
+                <price>10.00</price>
             </item>
             <item>
                 <name>Frytki</name>
-                <price>8.00</price>
+                <price>9.00</price>
+            </item>
+            <item>
+                <name>Sałatka</name>
+                <price>14.00</price>
             </item>
         </menu>
     </restaurant>
     <restaurant>
-        <name>Sushi Master</name>
+        <name>McDonalds</name>
         <address>
-            <street>Morska 2</street>
-            <city>Gdansk</city>
-            <postal-code>80-002</postal-code>
+            <street>Ul. Tuwima 4</street>
+            <city>Aleksandrów Kujawski</city>
+            <postal-code>87-700</postal-code>
             <country>Polska</country>
         </address>
-        <owner>Tomasz Wiśniewski</owner>
+        <owner>Michael Smith</owner>
         <menu>
             <item>
-                <name>Zestaw California</name>
-                <price>45.00</price>
+                <name>Burger zwykły</name>
+                <price>6.50</price>
             </item>
             <item>
-                <name>Zupa Miso</name>
+                <name>Burger drwala</name>
+                <price>27.00</price>
+            </item>
+            <item>
+                <name>Fyrtki</name>
+                <price>8.00</price>
+            </item>
+            <item>
+                <name>Wrap</name>
+                <price>16.00</price>
+            </item>
+        </menu>
+    </restaurant>
+    <restaurant>
+        <name>KFC</name>
+        <address>
+            <street>Ul. Słowackiego 10</street>
+            <city>Toruń</city>
+            <postal-code>87-100</postal-code>
+            <country>Polska</country>
+        </address>
+        <owner>Janina Kowalska</owner>
+        <menu>
+            <item>
+                <name>Kurczak</name>
                 <price>12.00</price>
+            </item>
+            <item>
+                <name>Kurczak podwójny</name>
+                <price>22.00</price>
+            </item>
+            <item>
+                <name>Frytki</name>
+                <price>9.50</price>
             </item>
         </menu>
     </restaurant>
